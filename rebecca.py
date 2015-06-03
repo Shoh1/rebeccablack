@@ -21,7 +21,7 @@ cfg.readfp(io.BytesIO(config))
 server = cfg.get('becky','server')
 port = int(cfg.get('becky','port'))
 bot = rbbot.RBbot(server,port)
-channel= cfg.get('becky','channel')
+channels= cfg.get('becky','channels')
 botnick= cfg.get('becky','botnick')
 password= cfg.get('becky','password')
 
