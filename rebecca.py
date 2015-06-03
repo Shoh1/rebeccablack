@@ -61,6 +61,9 @@ def cunt(text):
 	to = t1[1:t1.index('!')].strip()
 	return to
 	
+def chan(text):
+	t = text.split()
+        return t[2]
 
 ### START
 while bot.connected == True:
@@ -75,6 +78,7 @@ while bot.connected == True:
 
 	text=bot.ircsock.recv(2048)
 	print (text)
+	
 	if text.find(" crudeiasdas") != -1:
 		bot.getNames(channel)
 		
@@ -91,27 +95,25 @@ while bot.connected == True:
 			if cunt(text).lower() != "shoh":
 				#bot.messg(tweetjs,"t")
 				gif = apiObject.getAPI("sad")
-				bot.messg(gif,"a")
+				bot.messg(gif,"a",chan(text))
 		except ValueError:
 			print("value error on cunt")
 	if text.find("tell me more becky") != -1:
-		if cunt(text).lower() != "shoh":
-			bot.messg(tweetrb,"t")
+			bot.messg(tweetrb,"t",chan(text))
 	if text.find("rebecca tell me stuff") != -1:
-		if cunt(text).lower() != "shoh":
-			bot.messg(tweetrb1,"t")
+			bot.messg(tweetrb1,"t",chan(text))
 
 	if text.find("rektasdasdasdas") != -1:
 		try: 
 			gif = apiObject.getAPI("fuck+you")
-			bot.messg(gif,"a")
+			bot.messg(gif,"a",chan(text))
 		except ValueError:
 			print("value error on cunt")
 	
 	if text.find("relt") != -1:
 		try: 
 			gif = apiObject.getAPI("laugh")
-			bot.messg(gif,"a")
+			bot.messg(gif,"a",chan(text))
 		except ValueError:
 			print("value error on cunt")
 
@@ -122,11 +124,11 @@ while bot.connected == True:
 			allowance = rate;
 		if (allowance < 1.0):
 			print "allowance under 1"
-			bot.messg("av it u slag","g")
+			bot.messg("av it u slag","g",chan(text))
 		else:
 			cunts = cunt(text).lower()
 			if cunts != "shoh" or cunts != "dong" or cunts != "dongerdong":
-				bot.messg(datetime.datetime.now(),"YT")
+				bot.messg(datetime.datetime.now(),"YT",chan(text))
 			allowance -= 1.0
 
 	if text.find(":.yt ") != -1 or text.find(":.YT ") != -1:
@@ -136,11 +138,11 @@ while bot.connected == True:
 			allowance = rate;
 		if (allowance < 1.0):
 			print "allowance under 1"
-			bot.messg("av it u slag","g")
+			bot.messg("av it u slag","g",chan(text))
 		else:
 			cunts = cunt(text).lower()
 			if cunts == "shoh" or cunts == "dong" or cunts == "dongerdong" or cunts == "rebeccablack":
-				bot.messg("yer a cunt harry","g")
+				bot.messg("yer a cunt harry","g",chan(text))
 			else:
 				line = text[text.index(":.yt"):].split()
 				searchterm = []
@@ -154,9 +156,9 @@ while bot.connected == True:
 						stats = apiObject.getYT(yts)
 						dur = strftime('%M:%S',gmtime(parse_duration(stats["items"][0]["contentDetails"]["duration"]).seconds))
 						tellthecunts = result["items"][0]["snippet"]["title"]+" ("+dur+") by "+result["items"][0]["snippet"]["channelTitle"]+" -> Views: "+stats["items"][0]["statistics"]["viewCount"]+" | L/D: "+stats["items"][0]["statistics"]["likeCount"]+"/"+stats["items"][0]["statistics"]["dislikeCount"]+" -> https://youtu.be/"+result["items"][0]["id"]["videoId"]
-						bot.messg(tellthecunts,"g")
+						bot.messg(tellthecunts,"g",chan(text))
 					except IndexError:
-						bot.messg("can't find your shit video","g")
+						bot.messg("can't find your shit video","g",chan(text))
 
 				allowance -= 1.0
 	
@@ -167,18 +169,19 @@ while bot.connected == True:
 			allowance = rate;
 		if (allowance < 1.0):
 			print "allowance under 1"
-			bot.messg("av it u slag","g")
+			bot.messg("av it u slag","g",chan(text))
 		else:
 			cunts = cunt(text).lower()
 			if cunts == "shoh" or cunts == "dong" or cunts == "dongerdong":
-				bot.messg("yer a cunt harry","g")
+				bot.messg("yer a cunt harry","g",chan(text))
 			else:
-				bot.messg(datetime.datetime.now(),"yt")
+				bot.messg(datetime.datetime.now(),"yt",chan(text))
 
 			allowance -= 1.0
 	if text.find ("help me becky") != -1:
 		helpmenu = "tell me more becky, rebecca tell me stuff, is it friday, rekt, relt, jaden, .yt"
-		bot.messg("talk to me like one of your french girls","g")
-		bot.messg(helpmenu,"g")
+		bot.messg("talk to me like one of your french girls","g",chan(text))
+		bot.messg(helpmenu,"g",chan(text))
+
 	if text.find ( 'PING' ) != -1:
 		bot.messg(text.split()[1],"p")
