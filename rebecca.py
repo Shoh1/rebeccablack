@@ -37,8 +37,8 @@ ytstats = "https://www.googleapis.com/youtube/v3/videos?part=statistics,contentD
 
 ### SET NICK AND JOIN CHANNEL
 bot.set_nick(botnick,password)
-bot.join(channel)
-#bot.join(channel2)
+bot.join(channels)
+
 
 ### GET THE TWEET
 tweetObject = rbbot.Tweets()
