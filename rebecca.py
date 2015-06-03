@@ -61,7 +61,10 @@ def cunt(text):
 	to = t1[1:t1.index('!')].strip()
 	return to
 	
-
+def chan(text):
+        t = text.split()
+        return t[2]
+        
 ### START
 while bot.connected == True:
 	signal.signal(signal.SIGINT, bot.exitGracefully)
