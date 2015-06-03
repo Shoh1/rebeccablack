@@ -27,10 +27,11 @@ class RBbot(object):
 		self.ircsock.send("NICK "+self.nick+"\n")
 		self.ircsock.send("PRIVMSG NICKSERV :IDENTIFY " + self.nick + " " + self.pwd +"\n")
 	
-	def join(self,chan):
-		self.chan = chan
-		self.ircsock.send("JOIN "+self.chan+"\n")
-		self.connected = True
+	def join(self,chans):
+		for chan in chans.split(',')
+			self.chan = chan
+			self.ircsock.send("JOIN "+self.chan+"\n")
+			self.connected = True
 
 	def getNames(self,chan):
 		self.chan = chan
